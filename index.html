@@ -1,0 +1,66 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>视频解析系统</title>
+	<link rel="stylesheet" type="text/css" href="H-ui.min.css">
+</head>
+<body>
+	<iframe allowfullscreen class="main-container" id="main" width="100%" height="680px" class="textarea">
+		
+	</iframe>
+	<div style="width: 90%;margin:0 auto;border: 0.5px">
+		<input type="text" name="url" id="url" style="width: 80%;border-radius: 3px" class="input-text">
+		<select id="interface"class="select"style="width: 10%;">
+  			<option value="https://vip.bljiex.com/?v=" selected="selected">BL解析</option>
+  			<option value="http://607p.com/?url=">盘古解析</option>
+  			<option value="https://jiexi.071811.cc/jx.php?url=">石头解析</option>
+ 		 	<option value="http://jx.618g.com/?url=">618解析</option>
+ 		 	<option value="https://www.kpezp.cn/jlexi.php?url=">小蒋解析</option>
+ 		 	<option value="https://60jx.com/?url=">60解析</option>
+ 		 	<option value="http://bofang.online/?url=">思古解析</option>
+ 		 	<option value="http://play1.online/?url=">play解析</option>
+ 		 	<option value="http://55jx.top/?url=">55超清解析</option>
+ 		 	<option value="http://mimijiexi.top/?url=">mimi超清解析</option>
+ 		 	<option value="https://www.yq52.cn/jx/?url=">云栖解析</option>
+ 		 	
+ 		 	
+		</select>
+		<button id="play" class="btn btn-primary radius" width="10%" >立即解析</button>
+	</div>
+	
+<script type="text/javascript">
+	function getQueryVariable(variable)
+	{
+       var query = window.location.search.substring(1);
+       var vars = query.split("&");
+       for (var i=0;i<vars.length;i++) {
+               var pair = vars[i].split("=");
+               if(pair[0] == variable){return pair[1];}
+       }
+       return(false);
+	}
+	var s="https%3A%2F%2Fv.qq.com%2Fx%2Fcover%2Fipmc5u3dwb48mv2%2Fl0033wtb8cw.html"
+	var url=getQueryVariable("url");
+	var urlInputer=document.getElementById("url");
+	urlInputer.value=url;
+	var videoPlayer=document.getElementById("main");
+	videoPlayer.src ="https://vip.bljiex.com/?v="+url;
+	var btn = document.getElementById("play");
+	btn.onclick = function(e)
+	{
+		if (url!=urlInputer.value) {
+			window.location.replace("untitled.html?url="+urlInputer.value)
+		}else
+		analyse();
+	}
+	function analyse(){
+		var myselect=document.getElementById("interface");
+  		var index=myselect.selectedIndex;
+  		var url=getQueryVariable("url");
+		videoPlayer.src =myselect.options[index].value+url;
+	}
+</script>
+</body>
+</html>
